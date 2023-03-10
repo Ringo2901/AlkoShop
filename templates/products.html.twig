@@ -1,33 +1,19 @@
 <div class="main">
-    <section class="containerProducts">
-        <div class=image> <img src="images/wine.jpeg" alt="Вино"></div>
-        <div class="text">
-            <div class = "textcontainer">
-                <h1>Вино "Chateau Lafite Rothschild"</h1>
-                <p>Цена: 500 руб.</p>
-                <p>Описание: Chateau Lafite Rothschild - красное сухое вино, произведенное на винодельческом предприятии Chateau Lafite Rothschild во Франции.</p>
-            </div><form>
-                <label for="quantity">Количество:</label>
-                <input type="number" id="quantity" name="quantity" min="1" max="10">
-                <input type="submit" value="Добавить в корзину" >
-            </form>
-
-        </div>
-    </section>
-    <section class="containerProducts">
-        <div class=image> <img src="images/main2.jpg" alt="JAGERMEISTER"></div>
-        <div class="text">
-            <div class = "textcontainer">
-                <h1>Ликёр "JAGERMEISTER"</h1>
-                <p>Цена: 300 руб.</p>
-                <p>Описание: Именно Курт Маст, сын Вильгельма Маста, повернул семейное производство уксуса в другом направлении. Несколько лет прошло, прежде чем он получил идеальный рецепт Jagermeister из 56 ингредиентов, но мы считаем, что ожидание того стоило.</p>
+    {% for product in products %}
+        <section class="containerProducts">
+            <div class="image"> <img src="{{ product.image }}" alt="{{ product.title }}"></div>
+            <div class="text">
+                <div class="textcontainer">
+                    <h1>{{ product.title }}</h1>
+                    <p>Цена: {{ product.price }}</p>
+                    <p>Описание: {{ product.description }}</p>
+                </div>
+                <form>
+                    <label for="quantity">Количество:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="10">
+                    <input type="submit" value="Добавить в корзину">
+                </form>
             </div>
-
-            <form>
-                <label for="quantity">Количество:</label>
-                <input type="number" id="quantity" name="quantity" min="1" max="10">
-                <input type="submit" value="Добавить в корзину">
-            </form>
-        </div>
-    </section>
+        </section>
+    {% endfor %}
 </div>
